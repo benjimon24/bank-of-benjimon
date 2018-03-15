@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Crebit extends Component {
+class Credit extends Component {
   state = {};
   render() {
     return (
@@ -13,4 +13,4 @@ class Crebit extends Component {
   }
 }
 
-export default Crebit;
+export default Credit;
