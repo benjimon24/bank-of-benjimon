@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Debit from "./Debit";
+import Credit from "./Credit";
 import { Link } from "react-router-dom";
 
-class Debits extends Component {
+class Credits extends Component {
   state = {
     new: {
       amount: 0,
@@ -24,18 +24,18 @@ class Debits extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addDebit(this.state.new);
+    this.props.addCredit(this.state.new);
   };
 
   render() {
     return (
       <div>
-        <h1>Debits</h1>
-        {this.props.debits.map(debit => {
-          return <Debit debit={debit} />;
+        <h1>Credits</h1>
+        {this.props.credits.map(credit => {
+          return <Credit credit={credit} />;
         })}
 
-        <h2>Add Debit</h2>
+        <h2>Add Credit</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="amount">Amount</label>
@@ -53,4 +53,4 @@ class Debits extends Component {
   }
 }
 
-export default Debits;
+export default Credits;

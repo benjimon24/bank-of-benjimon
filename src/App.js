@@ -7,6 +7,7 @@ import UserProfile from "./components/UserProfile";
 import LogIn from "./components/Login";
 import Debits from "./components/Debits";
 import axios from "axios";
+import Credits from "./components/Credits";
 
 class App extends Component {
   constructor() {
@@ -39,7 +40,6 @@ class App extends Component {
 
   addDebit = debit => {
     let newDebits = this.state.debits;
-    console.log(newDebits);
     let newDebit = {
       amount: parseFloat(debit.amount),
       description: debit.description,
@@ -47,6 +47,17 @@ class App extends Component {
     };
     newDebits.push(newDebit);
     this.setState({ debits: newDebits });
+  };
+
+  addCredit = credit => {
+    let newCredits = this.state.credits;
+    let newCredit = {
+      amount: parseFloat(credit.amount),
+      description: credit.description,
+      date: Date().toLocaleString()
+    };
+    newCredits.push(newCredit);
+    this.setState({ crebits: newCredits });
   };
 
   render() {
@@ -70,6 +81,17 @@ class App extends Component {
               <div>
                 <AccountBalance debits={this.state.debits} credits={this.state.credits} />
                 <Debits addDebit={this.addDebit} debits={this.state.debits} />
+              </div>
+            )}
+          />
+
+          <Route
+            exact
+            path="/credits"
+            render={() => (
+              <div>
+                <AccountBalance debits={this.state.debits} credits={this.state.credits} />
+                <Credits addCredit={this.addCredit} credits={this.state.credits} />
               </div>
             )}
           />

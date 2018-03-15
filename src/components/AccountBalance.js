@@ -12,7 +12,9 @@ class AccountBalance extends Component {
         <div>
           <Link to="/debits"> Debits: </Link> {debits}
         </div>
-        <div> Total Credits: {credits} </div>
+        <div>
+          <Link to="/credits"> Credits: </Link> {credits}
+        </div>
       </div>
     );
   }
