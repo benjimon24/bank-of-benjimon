@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class LogIn extends Component {
   state = {
@@ -16,12 +17,10 @@ class LogIn extends Component {
     const inputValue = e.target.value;
     updatedUser[inputField] = inputValue;
     this.setState({ user: updatedUser });
-    console.log(this.state.user);
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.props.mockLogIn);
     this.props.mockLogIn(this.state.user);
     this.setState({ redirect: true });
   };
@@ -43,6 +42,7 @@ class LogIn extends Component {
           </div>
           <button>Log In</button>
         </form>
+        <Link to="/">Back </Link>
       </div>
     );
   }
